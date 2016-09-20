@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class NotebookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "notebooks must have a title" do
+    notebook = Notebook.new
+    assert notebook.invalid?
+  end
 end
