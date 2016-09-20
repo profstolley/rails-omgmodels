@@ -1,9 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  body: MyString
+note_one:
+  title: My First Note
+  body: Some first-note text
+  notebook: notebook_one
 
-two:
-  title: MyString
-  body: MyString
+note_two:
+  title: My Second Note
+  body: Some second-note text
+  notebook: notebook_two
+
+note_other:
+  title: My Other Note
+  body: Some other-note text
+  notebook: notebook_one
