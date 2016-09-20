@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920001309) do
+ActiveRecord::Schema.define(version: 20160920002232) do
 
   create_table "notebooks", force: :cascade do |t|
     t.string   "title"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20160920001309) do
   create_table "notes", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "notebook_id"
+    t.index ["notebook_id"], name: "index_notes_on_notebook_id"
   end
 
 end
