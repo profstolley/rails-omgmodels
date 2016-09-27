@@ -20,12 +20,14 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
+    @notebook = Note.find(params[:id]).notebook_id
   end
 
   # POST /notebooks/:id/notes
   # POST /notebooks/:id/notes.json
   def create
     @note = Note.new(note_params)
+    @note.notebook_id = @notebook.id
 
     respond_to do |format|
       if @note.save
@@ -55,9 +57,10 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
+    @notebook = @note.notebook.id
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to notebook_notes_url(@notebook), notice: 'Note was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
