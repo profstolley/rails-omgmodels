@@ -2,22 +2,23 @@ require 'test_helper'
 
 class NotesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @note = notes(:one)
+    @note = notes(:note_one)
+    @notebook = notebooks(:notebook_one)
   end
 
   test "should get index" do
-    get notes_url
+    get notebook_notes_url(@notebook)
     assert_response :success
   end
 
   test "should get new" do
-    get new_note_url
+    get new_notebook_note_url(@notebook)
     assert_response :success
   end
 
   test "should create note" do
     assert_difference('Note.count') do
-      post notes_url, params: { note: { body: @note.body, title: @note.title } }
+      post notebook_notes_url(@notebook), params: { note: { body: @note.body, title: @note.title }, notebook_id: @note.notebook }
     end
 
     assert_redirected_to note_url(Note.last)
@@ -43,6 +44,6 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
       delete note_url(@note)
     end
 
-    assert_redirected_to notes_url
+    assert_redirected_to notebook_notes_url(@notebook)
   end
 end
