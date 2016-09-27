@@ -1,8 +1,8 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
-  # GET /notes
-  # GET /notes.json
+  # GET /notebooks/:id/notes
+  # GET /notebooks/:id/notes.json
   def index
     @notes = Note.all
   end
@@ -12,7 +12,7 @@ class NotesController < ApplicationController
   def show
   end
 
-  # GET /notes/new
+  # GET /notebooks/:id/notes/new
   def new
     @note = Note.new
   end
@@ -21,8 +21,8 @@ class NotesController < ApplicationController
   def edit
   end
 
-  # POST /notes
-  # POST /notes.json
+  # POST /notebooks/:id/notes
+  # POST /notebooks/:id/notes.json
   def create
     @note = Note.new(note_params)
 
