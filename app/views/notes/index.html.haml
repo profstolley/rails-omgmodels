@@ -1,23 +1,14 @@
-%h1 Listing notes
+%h1
+  = @notebook.title
+  Notes
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th
-      %th
-      %th
+%ul
+  - @notebook.notes.each do |note|
+    %li
+      = note.title
+      %ul
+        %li= link_to 'Show', note
+        %li= link_to 'Edit', edit_note_path(note)
+        %li= link_to 'Destroy', note, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  %tbody
-    - @notes.each do |note|
-      %tr
-        %td= note.title
-        %td= note.body
-        %td= link_to 'Show', note
-        %td= link_to 'Edit', edit_note_path(note)
-        %td= link_to 'Destroy', note, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Note', new_note_path
+  %li= link_to 'New Note', new_notebook_note_path
