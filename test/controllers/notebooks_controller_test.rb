@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NotebooksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @notebook = notebooks(:one)
+    @notebook = notebooks(:notebook_one)
   end
 
   test "should get index" do
