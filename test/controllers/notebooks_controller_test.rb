@@ -45,4 +45,12 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to notebooks_url
   end
+
+  test "should list two notebooks on /notebooks" do
+    get notebooks_url
+    assert_select "tbody" do |t|
+      assert_select t, "tr", 2
+    end
+  end
+
 end
