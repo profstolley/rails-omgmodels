@@ -1,21 +1,11 @@
 %h1 Listing notebooks
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th
-      %th
-      %th
-
-  %tbody
-    - @notebooks.each do |notebook|
-      %tr
-        %td= notebook.title
-        %td= link_to 'Show', notebook
-        %td= link_to 'Edit', edit_notebook_path(notebook)
-        %td= link_to 'Destroy', notebook, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+%ul.notebooks
+  - @notebooks.each do |notebook|
+    %li.notebook
+      = link_to notebook.title, notebook
+      %ul
+        %li= link_to 'Edit', edit_notebook_path(notebook)
+        %li= link_to 'Destroy', notebook, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 = link_to 'New Notebook', new_notebook_path

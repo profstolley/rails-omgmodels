@@ -48,8 +48,8 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should list two notebooks on /notebooks" do
     get notebooks_url
-    assert_select "tbody" do |t|
-      assert_select t, "tr", 2
+    assert_select ".notebooks" do |i|
+      assert_select i, ".notebook", 2
     end
   end
 
