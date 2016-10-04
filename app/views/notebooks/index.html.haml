@@ -1,11 +1,6 @@
 %h1 Listing notebooks
 
 %ul.notebooks
-  - @notebooks.each do |notebook|
-    %li.notebook
-      = link_to notebook.title, notebook
-      %ul
-        %li= link_to 'Edit', edit_notebook_path(notebook)
-        %li= link_to 'Destroy', notebook, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = render 'notebooks'
 
 = link_to 'New Notebook', new_notebook_path
