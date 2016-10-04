@@ -53,4 +53,9 @@ class NotebooksControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should show notebook name in title" do
+    get notebook_url(@notebook)
+    assert_select "title", "Awesome Notebook App:\n My First Notebook"
+  end
+
 end

@@ -6,21 +6,25 @@ class NotesController < ApplicationController
   # GET /notebooks/:id/notes.json
   def index
     @notes = Note.all
+    @page_title = "All Notes"
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @page_title = @note.title
   end
 
   # GET /notebooks/:id/notes/new
   def new
     @note = Note.new
+    @page_title = "New Note"
   end
 
   # GET /notes/1/edit
   def edit
     @notebook = Note.find(params[:id]).notebook_id
+    @page_title = "Editing #{@note.title}"
   end
 
   # POST /notebooks/:id/notes

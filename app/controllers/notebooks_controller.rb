@@ -5,20 +5,24 @@ class NotebooksController < ApplicationController
   # GET /notebooks.json
   def index
     @notebooks = Notebook.all
+    @page_title = "Notebooks"
   end
 
   # GET /notebooks/1
   # GET /notebooks/1.json
   def show
+    @page_title = @notebook.title
   end
 
   # GET /notebooks/new
   def new
     @notebook = Notebook.new
+    @page_title = "New Notebook"
   end
 
   # GET /notebooks/1/edit
   def edit
+    @page_title = "Editing #{@notebook.title}"
   end
 
   # POST /notebooks
