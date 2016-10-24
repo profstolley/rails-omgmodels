@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :notebooks do
     resources :notes, shallow: true
   end
+
+  get '/auth/:provider/callback', to: 'sessions#create'
+
 end
