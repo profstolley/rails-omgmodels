@@ -51,3 +51,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use HAML for all views
 gem "haml-rails", "~> 0.9"
 
+# Use OmniAuth and the Twitter OAuth Strategy
+gem 'omniauth-twitter'
+
