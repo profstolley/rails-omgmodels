@@ -7,5 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    reset_session
+    redirect_to notebooks_path
   end
 end

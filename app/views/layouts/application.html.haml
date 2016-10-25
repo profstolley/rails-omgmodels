@@ -11,5 +11,10 @@
   %body
     %header#header
       %p
-        = link_to 'Log in with Twitter', auth_path('twitter')
+        - if current_user
+          Welcome,
+          = current_user.name
+          = link_to 'Log Out', logout_path
+        - else
+          = link_to 'Log in with Twitter', auth_path('twitter')
     = yield

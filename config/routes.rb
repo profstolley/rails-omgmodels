@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/auth/:provider', to: lambda{|env| [404, {}, ["Not Found"]]}, as: 'auth'
 
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+
 end
