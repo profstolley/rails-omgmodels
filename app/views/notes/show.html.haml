@@ -6,6 +6,9 @@
 %p
   %b Body:
   = @note.body
+- if @note.image.file?
+  .image
+    = image_tag @note.image.url(:medium)
 
 = link_to 'Edit', edit_note_path(@note)
 \|
