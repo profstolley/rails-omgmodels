@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920002232) do
+ActiveRecord::Schema.define(version: 20161107232043) do
 
   create_table "notebooks", force: :cascade do |t|
     t.string   "title"
@@ -21,10 +21,27 @@ ActiveRecord::Schema.define(version: 20160920002232) do
   create_table "notes", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "notebook_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["notebook_id"], name: "index_notes_on_notebook_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "nickname"
+    t.string   "name"
+    t.string   "location"
+    t.string   "uid",        null: false
+    t.string   "provider",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+    t.index ["provider"], name: "index_users_on_provider"
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
 end
