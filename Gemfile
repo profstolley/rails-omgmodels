@@ -51,3 +51,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use HAML for all views
 gem "haml-rails", "~> 0.9"
 
+# Use Paperclip for file attachments
+gem "paperclip", "~> 5.0.0"
